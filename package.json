@@ -1,0 +1,19 @@
+{
+  "name": "wargames",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000W\u0000a\u0000r\u0000G\u0000a\u0000m\u0000e\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MChrisGM/WarGames.git"
+  },
+  "author": "MChrisGM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MChrisGM/WarGames/issues"
+  },
+  "homepage": "https://github.com/MChrisGM/WarGames#readme"
+}
