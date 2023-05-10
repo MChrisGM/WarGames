@@ -1,9 +1,10 @@
-const User = require("../model/User");
+const User = require("../model/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const jwtSecret =
-  "4715aed3c946f7b0a38e6b534a9583628d84e96d10fbc04700770d572af3dce43625dd";
+require('dotenv').config();
+
+const jwtSecret = process.env.JWTSEC;
 exports.register = async (req, res, next) => {
   const { username, password } = req.body;
   if (password.length < 6) {
@@ -62,7 +63,7 @@ exports.login = async (req, res, next) => {
       });
     } else {
       // comparing given password with hashed password
-      bcrypt.compare(password, user.password).then(function (result) {
+      bcrypt.compare(password, user.password).then(function(result) {
         if (result) {
           const maxAge = 3 * 60 * 60;
           const token = jwt.sign(
