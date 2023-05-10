@@ -1,6 +1,7 @@
-// db.js
+require('dotenv').config();
+
 const Mongoose = require("mongoose")
-const localDB = `mongodb://127.0.0.1:27017/WarGames`
+const localDB = `mongodb+srv://`+process.env.MONGOUSR+`:`+process.env.MONGOPASS+`@cluster0.gblfvmr.mongodb.net/WarGames`
 const connectDB = async () => {
   await Mongoose.connect(localDB, {
     useNewUrlParser: true,
