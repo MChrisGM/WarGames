@@ -26,7 +26,10 @@ app.get("/logout", (req, res) => {
   res.redirect("/");
 });
 app.get("/admin", adminAuth, (req, res) => res.render("admin"));
-app.get("/basic", userAuth, (req, res) => res.render("user"));
+// app.get("/basic", userAuth, (req, res) => res.render("user"));
+
+app.get("/new", userAuth, (req, res) => res.render("new"));
+app.get("/games", userAuth, (req, res) => res.render("games"));
 
 const server = app.listen(PORT, () =>
   console.log(`Server Connected to port ${PORT}`)

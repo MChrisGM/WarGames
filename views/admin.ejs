@@ -5,17 +5,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin page</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Admin Panel</title>
 </head>
 
 <body>
-  <div class="display" style="background-color: red;"></div>
-  <h1>Users</h1>
-  <ul></ul>
-  <button class="logout"> <a href="/logout">Log Out</a></button>
+
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/new">New Game</a></li>
+    <li><a href="/games">My Games</a></li>
+    <li><a href="/register">Login/Register</a></li>
+  </ul>
+
+  <div class = "main_container">
+    <h1>Admin Panel</h1>
+    <hr>
+    <ul id="users_list" style="background-color:white"></ul>
+    <button class="logout"> <a href="/logout">Log Out</a></button>
+    
+  </div>
+
+  <div class="log"></div>
+
   <script>
-    const ul = document.querySelector('ul')
-    const display = document.querySelector('.display')
+    const ul = document.getElementById('users_list')
+    const display = document.querySelector('.log')
 
     const getUsers = async () => {
       const res = await fetch('/api/auth/getUsers')

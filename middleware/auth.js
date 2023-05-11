@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret =
-  "4715aed3c946f7b0a38e6b534a9583628d84e96d10fbc04700770d572af3dce43625dd";
+require('dotenv').config();
+
+const jwtSecret = process.env.JWTSEC;
 
 exports.adminAuth = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -27,18 +28,19 @@ exports.userAuth = (req, res, next) => {
   if (token) {
     jwt.verify(token, jwtSecret, (err, decodedToken) => {
       if (err) {
-        return res.status(401).json({ message: "Not authorized" });
+        // res.status(401).json({ message: "Not authorized" });
+        return res.redirect("/login");
       } else {
         if (decodedToken.role !== "Basic") {
-          return res.status(401).json({ message: "Not authorized" });
+          // res.status(401).json({ message: "Not authorized" });
+          return res.redirect("/login");
         } else {
           next();
         }
       }
     });
   } else {
-    return res
-      .status(401)
-      .json({ message: "Not authorized, token not available" });
+    // res.status(401).json({ message: "Not authorized, token not available" });
+    return res.redirect("/login");
   }
 };

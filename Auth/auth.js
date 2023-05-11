@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
 const jwtSecret = process.env.JWTSEC;
+
 exports.register = async (req, res, next) => {
   const { username, password } = req.body;
   if (password.length < 6) {

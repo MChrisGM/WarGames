@@ -33,3 +33,16 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+.main_container {
+  padding: 5px;
+}
+
+.log{
+  display:block;
+  position:absolute;
+  bottom: 0;
+  max-width:100%;
+  width:100%;
+  background-color: #e73b3b;
+}
