@@ -1,4 +1,3 @@
-// user.js
 const Mongoose = require("mongoose")
 const UserSchema = new Mongoose.Schema({
   username: {
@@ -16,7 +15,7 @@ const UserSchema = new Mongoose.Schema({
     default: "Basic",
     required: true,
   },
-})
+});
 
-const User = Mongoose.model("user", UserSchema)
-module.exports = User
+const User = Mongoose.model("users", UserSchema);
+module.exports = User;
