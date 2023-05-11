@@ -13,6 +13,8 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 
+app.use(express.static(__dirname + '/views'));
+
 // Routes
 app.use("/api/auth", require("./Auth/route"));
 
