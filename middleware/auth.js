@@ -23,6 +23,7 @@ exports.adminAuth = (req, res, next) => {
       .json({ message: "Not authorized, token not available" });
   }
 };
+
 exports.userAuth = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
@@ -31,7 +32,7 @@ exports.userAuth = (req, res, next) => {
         // res.status(401).json({ message: "Not authorized" });
         return res.redirect("/login");
       } else {
-        if (decodedToken.role !== "Basic") {
+        if (decodedToken.role !== "Basic" && decodedToken.role !== "admin") {
           // res.status(401).json({ message: "Not authorized" });
           return res.redirect("/login");
         } else {
@@ -42,5 +43,28 @@ exports.userAuth = (req, res, next) => {
   } else {
     // res.status(401).json({ message: "Not authorized, token not available" });
     return res.redirect("/login");
+  }
+};
+
+exports.userInfo = (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, jwtSecret, (err, decodedToken) => {
+      if (err) {
+        // res.status(401).json({ message: "Not authorized" });
+        return
+      } else {
+        if (decodedToken.role !== "Basic" && decodedToken.role !== "admin") {
+          // res.status(401).json({ message: "Not authorized" });
+          return
+        } else {
+          res.locals.decodedToken = decodedToken;
+          next();
+        }
+      }
+    });
+  } else {
+    // res.status(401).json({ message: "Not authorized, token not available" });
+    return
   }
 };

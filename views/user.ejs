@@ -10,10 +10,10 @@
 <body>
 
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/new">New Game</a></li>
-    <li><a href="/games">My Games</a></li>
-    <li><a href="/register">Login/Register</a></li>
+    <li><a href="/" class = "leftnav">Home</a></li>
+    <li><a href="/new" class = "leftnav">New Game</a></li>
+    <li><a href="/games" class = "leftnav">My Games</a></li>
+    <li><a href="/login" class = "rightnav">Login/Register</a></li>
   </ul>
   
   <div class = "main_container">
@@ -25,24 +25,9 @@
   </div>
 
   <div class="log"></div>
-  
-  <script>
-    const ul = document.getElementById('users_list')
-    const display = document.querySelector('.log')
 
-    const getUsers = async() => {
-      const res = await fetch('/api/auth/getUsers')
-      const data = await res.json()
-      data.user.map((mappedUser)=> {
-        if (mappedUser.username !== 'admin') {
-          let li = `<li> <b>Username</b> => ${mappedUser.username} <br> <b>Role</b> => ${mappedUser.role} </li>`
-          ul.innerHTML += li
-        } else {
-          return null
-        }
-      })
-    }
-    getUsers()
-  </script>
+  <script src="./scripts/getDecodedToken.js"></script>
+  <script src="./scripts/getNormalUsers.js"></script>
+  
 </body>
 </html>

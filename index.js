@@ -2,7 +2,7 @@ const express = require("express");
 const connectDB = require("./db");
 const app = express();
 const cookieParser = require("cookie-parser");
-const { adminAuth, userAuth } = require("./middleware/auth.js");
+const { adminAuth, userAuth, userInfo } = require("./middleware/auth.js");
 
 const PORT = 5000;
 
@@ -30,6 +30,12 @@ app.get("/admin", adminAuth, (req, res) => res.render("admin"));
 
 app.get("/new", userAuth, (req, res) => res.render("new"));
 app.get("/games", userAuth, (req, res) => res.render("games"));
+
+app.get("/profile", userAuth, (req, res) => res.render("profile"));
+
+app.post("/userInfo", userInfo, (req, res) => {
+  res.json(res.locals.decodedToken);
+})
 
 const server = app.listen(PORT, () =>
   console.log(`Server Connected to port ${PORT}`)
