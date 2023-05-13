@@ -32,6 +32,8 @@ app.get("/games", userAuth, (req, res) => res.render("games"));
 
 app.get("/profile", userAuth, (req, res) => res.render("profile"));
 
+app.get("/game", userAuth, (req, res) => res.render("game"));
+
 app.post("/userInfo", userInfo, (req, res) => {
   res.json(res.locals.decodedToken);
 })

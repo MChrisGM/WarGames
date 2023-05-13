@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+
+  <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+  <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
+  <script type='text/javascript' src='./scripts/planetaryjs.min.js'></script>
+
+  <title>Wargames</title>
+</head>
+<body>
+  
+  <ul>
+    <li><a href="/" class = "leftnav">Home</a></li>
+    <li><a href="/new" class = "leftnav">New Game</a></li>
+    <li><a href="/games" class = "leftnav">My Games</a></li>
+    <li><a href="/login" class = "rightnav">Login/Register</a></li>
+  </ul>
+
+  <div class = "main_container">
+    
+    <canvas id='globe' width="800" height="800"></canvas>
+    
+
+  </div>
+
+  <div class="log"></div>
+
+  <script src="./scripts/getDecodedToken.js"></script>
+  <script type='text/javascript' src='./scripts/globeFunctions.js'></script>
+</body>
+</html>
