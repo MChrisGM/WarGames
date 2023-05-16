@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/style.css">
 
-  <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
-  <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
-  <script type='text/javascript' src='./scripts/planetaryjs.min.js'></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+  <script src="//cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
   <title>Wargames</title>
 </head>
@@ -22,7 +24,7 @@
 
   <div class = "main_container">
     
-    <canvas id='globe' width="800" height="800"></canvas>
+    <div id="chartdiv"></div>
     
 
   </div>
